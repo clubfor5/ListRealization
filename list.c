@@ -47,3 +47,14 @@ Position FindPrevious(ElementType X,List L)
     
     return P;
 }
+
+void Insert(ElementType X,List L,Position P)
+{
+    Position TmpCell;
+    TmpCell = malloc(sizeof(struct Node));
+    if(TmpCell == NULL)
+        Serial.println("out of space!");
+    TmpCell->Element = X;
+    TmpCell->Next = P->Next;
+    P->Next = TmpCell;
+}
