@@ -53,8 +53,35 @@ void Insert(ElementType X,List L,Position P)
     Position TmpCell;
     TmpCell = malloc(sizeof(struct Node));
     if(TmpCell == NULL)
+       {
         Serial.println("out of space!");
+        return ;
+       }
     TmpCell->Element = X;
     TmpCell->Next = P->Next;
     P->Next = TmpCell;
 }
+
+
+void DeleteList(List L)
+{
+    Position P1,P2;
+    P1 = L;
+    while(P1->Next != null)
+    {
+        P2 = P1->Next;
+        free(P1);
+        P1 = P2;
+    }
+}
+
+Position Header(List L)
+{
+    return L;
+}
+
+Position First(List L)
+{  
+    return L->Next;
+}
+Po
